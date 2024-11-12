@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+</head>
+
+<style>
+    * {
+
+        margin: 0;
+        padding: 0;
+    }
+
+    th {
+        padding: 4px;
+    }
+
+    td {
+
+        padding: 5px;
+    }
+
+    table,
+    td,
+    th {
+        border-collapse: collapse;
+        border: 2px solid;
+
+    }
+
+    table {
+        background-color: rgb(245, 239, 239);
+        width: 100%;
+    }
+
+    .box {
+        width: 80vw;
+        height: 80vh;
+        margin: auto;
+        padding: 20px;
+
+        background-color: rgba(240, 245, 245, 0.712);
+
+    }
+
+    h1 {
+        padding: 20px;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    input {
+        border-radius: 1px;
+        margin: 10px 0px;
+        padding: 5px;
+    }
+
+    .submit {
+
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <div class="box">
+
+
+        <h1>Registeration form</h1>
+
+        <form id="dataForm">
+            <label for=""> Name: </label>
+            <br>
+            <input type="text" id="name" style="  width: 100%;">
+            <br>
+            <label for=""> Email: </label>
+            <br>
+            <input type="email" id="email" style="  width: 100%;"> <br>
+            <label for=""> Phone: </label>
+            <br>
+            <input type="number" id="phone" style="  width: 100%;">
+            <br>
+        </form>
+            <input class="submit" type="submit" onclick="addData()"
+                style=" background-color: rgba(0, 128, 0, 0.719);  border-radius: 3px; width: 103%;">
+
+
+        <h1>
+            Registered Users
+        </h1>
+
+
+        <table id="myTable">
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Email
+                </th>
+                <th>
+                    Phone
+                </th>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+
+                    JONE DOE
+                </td>
+
+
+                <td>
+
+                    jonedoe@example.com
+                </td>
+                <td>
+
+                    123-456-7890
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                    Jane smith
+                </td>
+                <td>
+
+                    Jane smith@example.com
+                </td>
+                <td>
+
+                    987-654-3210
+                </td>
+            </tr>
+
+
+        </table>
+    </div>
+
+    <script>
+        
+        function addData() {
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+
+            // Get table body
+            const tableBody = document.getElementById('myTable').getElementsByTagName('tbody')[0];
+
+            // Create a new row
+            const newRow = tableBody.insertRow();
+
+            // Insert new cells and set their content
+            const cell1 = newRow.insertCell(0);
+            const cell2 = newRow.insertCell(1);
+            const cell3 = newRow.insertCell(2);
+
+            cell1.textContent = name;
+            cell2.textContent = email;
+            cell3.textContent = phone;
+
+            // Clear the form inputs
+            document.getElementById('dataForm').reset();
+        }
+    </script>
+</body>
+
+</html>
